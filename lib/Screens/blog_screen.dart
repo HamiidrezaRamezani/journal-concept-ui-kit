@@ -158,8 +158,8 @@ class _BlogScreenState extends State<BlogScreen> {
                             builder: (context) => BlogPostSingleScreen(
                                 title: "Inspiration For Gray Days",
                                 image: [
-                                  "assets/images/jpg/image4.jpg",
-                                  "assets/images/jpg/image4.jpg",
+                                  Image.asset("assets/images/jpg/image4.jpg", fit: BoxFit.fill,),
+                                  Image.asset("assets/images/jpg/image4.jpg", fit: BoxFit.fill,),
                                 ],
                                 subTitle:
                                     "If it's still snowy where you live, then you're probably tired", tag: "visual culture",)));
@@ -172,7 +172,7 @@ class _BlogScreenState extends State<BlogScreen> {
                           Row(
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.52,
                                 child: const Text(
                                   "Inspiration For Gray Days",
                                   style: TextStyle(
@@ -189,7 +189,7 @@ class _BlogScreenState extends State<BlogScreen> {
                           Row(
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.52,
                                 child: const Text(
                                   "If it's still snowy where you live, then you're probably tired ... More ",
                                   style: TextStyle(
@@ -205,7 +205,7 @@ class _BlogScreenState extends State<BlogScreen> {
                             height: 24.0,
                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.6,
+                            width: MediaQuery.of(context).size.width * 0.52,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -231,14 +231,14 @@ class _BlogScreenState extends State<BlogScreen> {
                           ),
                           Container(
                             height: 0.75,
-                            width: MediaQuery.of(context).size.width * 0.6,
+                            width: MediaQuery.of(context).size.width * 0.52,
                             color: Colors.black,
                           ),
                         ],
                       ),
                       SizedBox(
                           height: 200.0,
-                          width: 150.0,
+                          width: MediaQuery.of(context).size.width * 0.35,
                           child: Image.asset(
                             "assets/images/jpg/image4.jpg",
                             fit: BoxFit.fill,
@@ -257,8 +257,8 @@ class _BlogScreenState extends State<BlogScreen> {
                             builder: (context) => BlogPostSingleScreen(
                               title: "The Discovery of Self",
                               image: [
-                                "assets/images/jpg/image1.jpg",
-                                "assets/images/jpg/image1.jpg",
+                                Image.asset("assets/images/jpg/image1.jpg", fit: BoxFit.fill,),
+                                Image.asset("assets/images/jpg/image1.jpg", fit: BoxFit.fill,),
                               ],
                               subTitle:
                               "To belong nowhere is a blessing, says London-based artist", tag: "visual culture",)));
@@ -271,7 +271,7 @@ class _BlogScreenState extends State<BlogScreen> {
                           Row(
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.52,
                                 child: const Text(
                                   "The Discovery of Self",
                                   style: TextStyle(
@@ -288,7 +288,7 @@ class _BlogScreenState extends State<BlogScreen> {
                           Row(
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.52,
                                 child: const Text(
                                   "To belong nowhere is a blessing, says London-based artist ... More ",
                                   style: TextStyle(
@@ -301,10 +301,10 @@ class _BlogScreenState extends State<BlogScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 64.0,
+                            height: 24.0,
                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.6,
+                            width: MediaQuery.of(context).size.width * 0.52,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -347,14 +347,14 @@ class _BlogScreenState extends State<BlogScreen> {
                           ),
                           Container(
                             height: 0.75,
-                            width: MediaQuery.of(context).size.width * 0.6,
+                            width: MediaQuery.of(context).size.width * 0.52,
                             color: Colors.black,
                           ),
                         ],
                       ),
                       SizedBox(
                           height: 200.0,
-                          width: 150.0,
+                          width: MediaQuery.of(context).size.width * 0.35,
                           child: Image.asset(
                             "assets/images/jpg/image1.jpg",
                             fit: BoxFit.fill,
@@ -373,8 +373,8 @@ class _BlogScreenState extends State<BlogScreen> {
                             builder: (context) => BlogPostSingleScreen(
                               title: "The Eccentricities Of Everyday Life",
                               image: [
-                                "assets/images/jpg/image5.jpg",
-                                "assets/images/jpg/image5.jpg",
+                                Image.asset("assets/images/jpg/image5.jpg", fit: BoxFit.fill,),
+                                Image.asset("assets/images/jpg/image5.jpg", fit: BoxFit.fill,),
                               ],
                               subTitle:
                               "finding the words to describe one of his latest works. Emotional and atmospheric, Tishk’s work", tag: "visual culture",)));
@@ -387,11 +387,11 @@ class _BlogScreenState extends State<BlogScreen> {
                           Row(
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.52,
                                 child: const Text(
                                   "The Eccentricities Of Everyday Life",
                                   style: TextStyle(
-                                      fontSize: 28.0,
+                                      fontSize: 24.0,
                                       fontFamily: "ManualeBold",
                                       color: Color(0xFF050505)),
                                 ),
@@ -404,12 +404,13 @@ class _BlogScreenState extends State<BlogScreen> {
                           Row(
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.52,
                                 child: const Text(
                                   "finding the words to describe one of his latest works. Emotional and atmospheric, Tishk’s work ... More ",
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontFamily: "ManualeRegular",
+                                      overflow: TextOverflow.ellipsis,
                                       color: Color(0xFF3C3C3C)),
                                   maxLines: 3,
                                 ),
@@ -417,10 +418,10 @@ class _BlogScreenState extends State<BlogScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 16.0,
+                            height: 24.0,
                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.6,
+                            width: MediaQuery.of(context).size.width * 0.52,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -446,14 +447,14 @@ class _BlogScreenState extends State<BlogScreen> {
                           ),
                           Container(
                             height: 0.75,
-                            width: MediaQuery.of(context).size.width * 0.6,
+                            width: MediaQuery.of(context).size.width * 0.52,
                             color: Colors.black,
                           ),
                         ],
                       ),
                       SizedBox(
                           height: 200.0,
-                          width: 150.0,
+                          width: MediaQuery.of(context).size.width * 0.35,
                           child: Image.asset(
                             "assets/images/jpg/image5.jpg",
                             fit: BoxFit.fill,
@@ -472,8 +473,8 @@ class _BlogScreenState extends State<BlogScreen> {
                             builder: (context) => BlogPostSingleScreen(
                               title: "grain editSébastien Plassard",
                               image: [
-                                "assets/images/jpg/image3.jpg",
-                                "assets/images/jpg/image3.jpg",
+                                Image.asset("assets/images/jpg/image3.jpg", fit: BoxFit.fill,),
+                                Image.asset("assets/images/jpg/image3.jpg", fit: BoxFit.fill,),
                               ],
                               subTitle:
                               "Explore the story behind the ghostly beauty of marginalized communities in", tag: "visual culture",)));
@@ -486,11 +487,11 @@ class _BlogScreenState extends State<BlogScreen> {
                           Row(
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.52,
                                 child: const Text(
                                   "grain editSébastien Plassard",
                                   style: TextStyle(
-                                      fontSize: 28.0,
+                                      fontSize: 24.0,
                                       fontFamily: "ManualeBold",
                                       color: Color(0xFF050505)),
                                 ),
@@ -503,23 +504,24 @@ class _BlogScreenState extends State<BlogScreen> {
                           Row(
                             children: [
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.6,
+                                width: MediaQuery.of(context).size.width * 0.52,
                                 child: const Text(
                                   "Explore the story behind the ghostly beauty of marginalized communities in  ... More ",
                                   style: TextStyle(
                                       fontSize: 14.0,
+                                      overflow: TextOverflow.ellipsis,
                                       fontFamily: "ManualeRegular",
                                       color: Color(0xFF3C3C3C)),
-                                  maxLines: 3,
+                                  maxLines: 2,
                                 ),
                               ),
                             ],
                           ),
                           const SizedBox(
-                            height: 16.0,
+                            height: 24.0,
                           ),
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.6,
+                            width: MediaQuery.of(context).size.width * 0.52,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -545,14 +547,14 @@ class _BlogScreenState extends State<BlogScreen> {
                           ),
                           Container(
                             height: 0.75,
-                            width: MediaQuery.of(context).size.width * 0.6,
+                            width: MediaQuery.of(context).size.width * 0.52,
                             color: Colors.black,
                           ),
                         ],
                       ),
                       SizedBox(
                           height: 200.0,
-                          width: 150.0,
+                          width: MediaQuery.of(context).size.width * 0.35,
                           child: Image.asset(
                             "assets/images/jpg/image3.jpg",
                             fit: BoxFit.fill,

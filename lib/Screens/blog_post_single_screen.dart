@@ -1,9 +1,10 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BlogPostSingleScreen extends StatefulWidget {
   final String title;
-  final List<String> image;
+  final List<Widget> image;
   final String subTitle;
   final String tag;
 
@@ -19,6 +20,8 @@ class BlogPostSingleScreen extends StatefulWidget {
 }
 
 class _BlogPostSingleScreenState extends State<BlogPostSingleScreen> {
+  int _current = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +99,7 @@ class _BlogPostSingleScreenState extends State<BlogPostSingleScreen> {
                       child: Center(
                         child: Text(
                           widget.tag,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Color(0xFF050505),
                               fontFamily: "ManualeRegular",
                               fontSize: 12.0),
@@ -110,7 +113,7 @@ class _BlogPostSingleScreenState extends State<BlogPostSingleScreen> {
                 ),
                 Text(
                   widget.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 32.0,
                       fontFamily: "ManualeBold",
                       color: Color(0xFF050505)),
@@ -121,7 +124,7 @@ class _BlogPostSingleScreenState extends State<BlogPostSingleScreen> {
                 ),
                 Text(
                   widget.subTitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 16.0,
                       fontFamily: "ManualeRegular",
                       color: Color(0xFF3C3C3C)),
@@ -130,65 +133,86 @@ class _BlogPostSingleScreenState extends State<BlogPostSingleScreen> {
                 const SizedBox(
                   height: 24.0,
                 ),
-                Container(
-                  height: 300.0,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: widget.image.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          padding:
-                              const EdgeInsets.only(left: 0.0, right: 16.0),
-                          child: Image.asset(
-                            widget.image[index],
-                            fit: BoxFit.fill,
-                          ),
-                        );
-                      }),
+                SizedBox(
+                    height: 300.0,
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                          viewportFraction: .6,
+                          aspectRatio: 1.0,
+                          enlargeCenterPage: true,
+                          scrollDirection: Axis.horizontal,
+                          autoPlay: true,
+                          onPageChanged: (index, reason) {
+                            setState(() {
+                              _current = index;
+                            });
+                          }),
+                      items: widget.image,
+                    )),
+
+                const SizedBox(
+                  height: 24.0,
                 ),
-                SizedBox(height: 24.0,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 12.0,
-                      width: 12.0,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.transparent,
-                          border: Border.all(color: Colors.black, width: 1.0)
+                  children: widget.image.map((url) {
+                    int index = widget.image.indexOf(url);
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 5.0),
+                      child: Container(
+                        height: 12.0,
+                        width: 12.0,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.transparent,
+                            border:
+                                Border.all(color: Colors.black, width: 1.0)),
+                        child: _current != index
+                            ? Container()
+                            : Center(
+                                child: Container(
+                                  height: 6.0,
+                                  width: 6.0,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
                       ),
-                      child: Center(
-                        child: Container(
-                          height: 6.0,
-                          width: 6.0,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 5.0,),
-                    Container(
-                      height: 12.0,
-                      width: 12.0,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.transparent,
-                          border: Border.all(color: Colors.black, width: 1.0)
-                      ),
-                    )
-                  ],
+                    );
+                  }).toList(),
                 ),
-                SizedBox(height: 24.0,),
+
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     for(var item in widget.image)
+                //
+                //     // const SizedBox(width: 5.0,),
+                //     // Container(
+                //     //   height: 12.0,
+                //     //   width: 12.0,
+                //     //   decoration: BoxDecoration(
+                //     //       shape: BoxShape.circle,
+                //     //       color: Colors.transparent,
+                //     //       border: Border.all(color: Colors.black, width: 1.0)
+                //     //   ),
+                //     // )
+                //   ],
+                // ),
+                const SizedBox(
+                  height: 24.0,
+                ),
                 const Text(
                   "To belong nowhere is a blessing says London-based artist Tishk Barzanji when poetically finding the words to describe one of his latest works. Emotional and atmospheric, Tishk’s work transports you into his mind like a hauntingly beautiful graphic novel. Pure poetry and art, he speaks to people on a compelling level around subjects such as anxiety, depression, and belonging to name a few. His message is deep and straight to the heart. To belong nowhere is a blessing says London-based artist Tishk Barzanji when poetically finding the words to describe one of his latest works. Emotional and atmospheric, Tishk’s work transports you into his mind like a hauntingly beautiful graphic novel. Pure poetry and art, he speaks to people on a compelling level around subjects such as anxiety, depression, and belonging to name a few. His message is deep and straight to the heart",
                   style: TextStyle(
                       fontSize: 16.0,
                       color: Color(0xFF3C3C3C),
                       fontFamily: "ManualeRegular"),
+                ),
+                const SizedBox(
+                  height: 140.0,
                 )
               ],
             ),
@@ -200,9 +224,9 @@ class _BlogPostSingleScreenState extends State<BlogPostSingleScreen> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
-                    const Color(0xFFE5E2DC),
-                    const Color(0xFFF6F4F0).withOpacity(0.0)
-                  ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
+                const Color(0xFFE5E2DC),
+                const Color(0xFFF6F4F0).withOpacity(0.0)
+              ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
             ),
           )
         ],
